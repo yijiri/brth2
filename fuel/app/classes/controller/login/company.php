@@ -12,7 +12,7 @@ class Controller_Login_Company extends Controller_Base
 	public function action_select()
 	{
 		try {
-			// リクエスト
+			// リクエストテスト
 			$v_req_login_companyselect = new req_login_companyselect();
 
 			// 画面で入力された値を取得
