@@ -1,0 +1,169 @@
+.container {
+ 	width: 90%;
+ 	max-width: 100%;
+}
+.breadcrumb{
+	background-color:white;
+}
+.badge{
+	margin-left:20px;
+}
+.row{
+	margin-bottom:15px;
+}
+.login {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 15px;
+	border-width: 5px;
+	margin-top:70px;
+}
+.login-button{
+	text-align:center;
+}
+
+table thead tr{
+	background-color: whitesmoke;
+}
+
+.well{
+	background-color: white;
+}
+
+@media (max-width: 1536px) {
+	.container {
+		width: 88%;
+		max-width: 88%;
+		font-size: 90%;
+		margin-right:40px;
+		margin-left:40px;
+	}
+	.navbar-brand{
+		font-size: 130%;
+	}
+	h4{
+		font-size:130%;
+	}
+	.dropdown-menu{
+		font-size: 90%;
+	}
+	.form-control {
+		font-size: 90%;
+	}
+	.btn{
+		font-size: 90%;
+	}
+	.modal{
+		font-size: 90%;
+	}
+	.badge{
+		font-size: 90%;
+	}
+}
+
+@media (max-width: 1280px) {
+	.container {
+		width: 90%;
+		max-width: 90%;
+		font-size: 80%;
+		margin-right:25px;
+		margin-left:25px;
+	}
+	.list-group-item{
+		padding: 10px 10px;
+	}
+	.navbar-brand{
+		font-size: 110%;
+	}
+	h4{
+		font-size:110%;
+	}
+	.dropdown-menu{
+		font-size: 80%;
+	}
+	.form-control {
+		font-size: 80%;
+	}
+	.btn{
+		font-size: 80%;
+	}
+	.modal{
+		font-size: 80%;
+	}
+	.badge{
+		font-size: 80%;
+		padding:3px 6px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		width: 95%;
+		max-width: 95%;
+		font-size: 70%;
+		margin-right:8px;
+		margin-left:8px;
+	}
+	.list-group-item{
+		padding: 10px 10px;
+	}
+	.navbar-brand{
+		font-size: 70%;
+	}
+	h4{
+		font-size:70%;
+	}
+	.dropdown-menu{
+		font-size: 70%;
+	}
+	.form-control {
+		font-size: 70%;
+	}
+	.btn{
+		font-size: 70%;
+	}
+	.modal{
+		font-size: 70%;
+	}
+	.badge{
+		font-size: 70%;
+		padding:2px 5px;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		width: 100%;
+		max-width: 100%;
+		font-size: 60%;
+		margin-right:0px;
+		margin-left:0px;
+	}
+	.list-group-item{
+		padding: 10px 10px;
+	}
+	.navbar-brand{
+		font-size: 60%;
+	}
+	h4{
+		font-size:60%;
+	}
+	.dropdown-menu{
+		font-size: 60%;
+	}
+	.form-control {
+		font-size: 60%;
+	}
+	.btn{
+		font-size: 60%;
+	}
+	.modal{
+		font-size: 60%;
+	}
+	.badge{
+		font-size: 60%;
+		padding:1px 3px;
+	}
+}

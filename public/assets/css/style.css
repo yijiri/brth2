@@ -1,0 +1,580 @@
+@CHARSET "UTF-8";
+
+
+
+
+body, button, select, input, textarea
+{
+	margin:0px;
+	font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+	font-size:12px;
+}
+
+
+/* テーブルの基本スタイル ---------------------------------------- start */
+
+.tablebase
+{
+	border-collapse:collapse;
+	border-style:none;
+}
+
+
+.tablebase tr, td
+{
+	padding:0px;
+}
+
+/* テーブルの基本スタイル ---------------------------------------- end */
+
+
+#header
+{
+	color:#FFFFFF;
+}
+
+/* 区分タブテーブル */
+.kubuntab {
+	height:25px;
+	width:100%;
+	background:url('../img/bar_space.gif');
+}
+
+/* 中項目ボタンテーブル */
+.btntab {
+	height:19px;
+	width:100%;
+	background:url('../img/bta_space.gif');
+}
+
+/* 中項目ボタン画像 */
+.btntabimg {
+	vertical-align:bottom;
+}
+
+
+/* ログイン ---------------------------------------- start */
+
+#login
+{
+	width:100%;
+	text-align:center;
+	height:300px;
+}
+
+#login th
+{
+	width:40%;
+	text-align:right;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+#loginTitle
+{
+	font-size:18px;
+	font-weight:bold;
+	padding-top:20px;
+}
+
+#loginTable
+{
+	padding:5px;
+	border:#565656;
+	border-style:solid;
+	border-width:1px;
+	margin:0 auto;
+	width:240px;
+	height:120px;
+	background-color:#FFFAE0;
+}
+
+
+/* ログイン ---------------------------------------- end */
+
+
+/* 検索結果一覧 ---------------------------------------- start */
+
+#searchTable,
+#infoTable,
+#storeTable,
+#settleKindTable,
+#accountTable,
+#ipfilterTable
+{
+	border-collapse:collapse;
+	border:#D0C0FF;
+	border-style:solid;
+	border-width:0.5px;
+}
+
+#searchTable tr,
+#infoTable tr,
+#storeTable tr,
+#settleKindTable tr,
+#accountTable tr,
+#ipfilterTable tr
+{
+	border:#D0C0FF;
+	border-style:solid;
+	border-width:0.5px;
+}
+#searchTable th,
+#infoTable th,
+#storeTable th,
+#settleKindTable th,
+#accountTable th,
+#ipfilterTable th
+{
+	color:#FFFFFF;
+	border:#D0C0FF;
+	border-style:solid;
+	border-width:0.5px;
+	/*background-color:#483D8B;*/
+}
+
+/* 偶数行 */
+#searchTable tr:nth-child(even),
+#infoTable tr:nth-child(even),
+#storeTable tr:nth-child(even),
+#settleKindTable tr:nth-child(even),
+#accountTable tr:nth-child(even),
+#ipfilterTable tr:nth-child(even)
+{
+	background-color:#FFFAE0;
+}
+
+/* 奇数行 */
+#searchTable tr:nth-child(odd),
+#infoTable tr:nth-child(odd),
+#storeTable tr:nth-child(odd),
+#settleKindTable tr:nth-child(odd),
+#accountTable tr:nth-child(odd),
+#ipfilterTable tr:nth-child(odd)
+{
+	background-color:#FFFFFF;
+}
+
+#search
+{
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:950px;
+}
+
+/* 検索結果一覧 ---------------------------------------- end */
+
+/* 詳細項目 */
+.detail
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:60%;
+	table-layout:fixed;
+}
+
+
+.detail th
+{
+	width:20%;
+	text-align:right;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+.detail td
+{
+	width:80%;
+	text-align:left;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+
+/* 詳細項目 */
+.detail2
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:60%;
+	table-layout:fixed;
+}
+
+.detail2 th
+{
+	width:20%;
+	text-align:right;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+.detail2 td
+{
+	width:30%;
+	text-align:left;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+.detailHeader
+{
+	width:60%;
+	text-align:left;
+}
+
+/* 検索条件項目 */
+.condition_detail
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:65%;
+	table-layout:fixed;
+}
+
+
+.condition_detail th
+{
+	width:20%;
+	text-align:right;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+.condition_detail td
+{
+	width:80%;
+	text-align:left;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+
+/* 検索条件項目 */
+.condition_detail2
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:65%;
+	table-layout:fixed;
+}
+
+.condition_detail2 th
+{
+	width:20%;
+	text-align:right;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+.condition_detail2 td
+{
+	width:30%;
+	text-align:left;
+	padding-top:7px;
+	padding-bottom:7px;
+	word-wrap:break-word;
+}
+
+.condition_detailHeader
+{
+	width:65%;
+	text-align:left;
+}
+
+/*詳細項目設定---------------------------------------- start */
+
+/* 後で削除 -------------------------start*/
+.detailKoumoku_th
+{
+	width:15%;
+	text-align:right;
+}
+.detailKoumoku_td1
+{
+	width:85%;
+	text-align:left;
+}
+
+.detailKoumoku_td2
+{
+	width:35%;
+	text-align:left;
+}
+
+
+/*詳細項目設定---------------------------------------- end */
+
+/*項目設定---------------------------------------- start */
+#itemsetting
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:40%;
+}
+
+#itemsetting th
+{
+	width:40%;
+	text-align:right;
+}
+
+#itemsetting td
+{
+	width:60%;
+	text-align:left;
+}
+
+/*項目設定---------------------------------------- end */
+
+/* 検索（条件指定）*/
+.condition
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:47%;
+}
+
+.condition th
+{
+	width:20%;
+	text-align:right;
+	padding-top:7px;
+	padding-buttom:7px;
+}
+
+.condition td
+{
+	width:80%;
+	text-align:left;
+	padding-top:7px;
+	padding-buttom:7px;
+}
+
+/*お知らせ */
+#announcement
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:40%;
+}
+
+/* 検索詳細*/
+.detail_search
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:60%;
+}
+
+/* 有効期限切れ通知*/
+.notice
+{
+	background-color:#FFFAE0;
+	border:#408080;
+	border-style:solid;
+	border-width:1px;
+	width:80%;
+}
+
+/* 検索条件テーブル ---------------------------------------- start */
+.searchtd1
+{
+	text-align: left;
+	background-color:#fffae0;
+	padding-bottom:0px;
+	padding-top:0px;;
+	border-width:1px;;
+	colSpan:3;
+	width:98%;
+}
+
+.searchtd2
+{
+	color:#FFFFFF;
+	text-align: center;
+	width:15%;
+}
+
+.searchth
+{
+	text-align:center;
+	background-color:#483D8B;
+	height:24;
+}
+
+/* 検索条件テーブル---------------------------------------- end */
+
+/* リストの上に配置される文字とかボタン用  */
+#upList
+{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+
+/* リンク関連 ---------------------------------------- start */
+a
+{
+	font-weight: normal;
+    color: #483D8B
+}
+
+a:link
+{
+    color: #483D8B
+}
+
+a:visited
+{
+    color: #483D8B
+}
+
+a:active
+{
+    color: darkorange
+}
+
+a:hover
+{
+    color: darkorange
+}
+
+a.caption:link
+{
+    font-size: 10pt;
+    color: #483D8B
+}
+
+a.caption:visited
+{
+    color: #483D8B
+}
+
+a.caption:active
+{
+    color: cornsilk
+}
+
+a.caption:hover
+{
+    color: cornsilk
+}
+
+a.footer:link
+{
+    color: white
+}
+
+a.footer:visited
+{
+    color: white
+}
+
+a.footer:active
+{
+    color: darkorange
+}
+
+a.footer:hover
+{
+    color: darkorange
+}
+
+a.top:link
+{
+    color: #483D8B;
+    text-decoration: none
+}
+
+a.top:visited
+{
+    color: #483D8B;
+    text-decoration: none
+}
+
+a.top:active
+{
+    color: darkorange;
+    text-decoration: none
+}
+
+a.top:hover
+{
+    color: darkorange;
+    text-decoration: none
+}
+/* リンク関連 ---------------------------------------- end */
+
+
+/* フッタ ---------------------------------------- start */
+
+#footer
+{
+	color:#FFFFFF;
+	background-color:#483D8B;
+	border-collapse:collapse;
+	border-style:none;
+	width:100%;
+}
+
+#footer tr, td
+{
+	padding:0px;
+}
+
+/* フッタ ---------------------------------------- end */
+
+/* エラーメッセージ */
+#error
+{
+	color:#FF0000;
+	padding-top:10px;
+}
+
+/* エラー画面 */
+#errorDisplay
+{
+	color:#FF0000;
+	padding-top:10px;
+	height:500px;
+	text-align:center;
+}
+
+#breadcrumb
+{
+	color:#000000;
+	font-weight:bold;
+	background-color:#E3F0E3;
+	border-collapse:collapse;
+	border-style:none;
+	width:100%;
+}
+
+#breadcrumb tr, td
+{
+	padding:0px;
+}
