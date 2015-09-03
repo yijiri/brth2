@@ -21,7 +21,7 @@ class Controller_Login extends Controller_Base
 			var_dump($conn);
 
 
-			return "ブライソン2";
+			return "ブライソン22";
 
 			// テンプレートを使用しないために、Responseを自作
 			//return new Response(View::forge(VIEW_LOGIN, null));
