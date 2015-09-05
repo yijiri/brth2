@@ -28,7 +28,7 @@ class process_progress_index extends process_base {
 
 		// レコード取得
 		$v_process_progress_list = new process_progress_list();
-		$s_view_name = $v_process_network_list->execute_process($v_req_base, $v_util_dbaccessor);
+		$s_view_name = $v_process_progress_list->execute_process($v_req_base, $v_util_dbaccessor);
 
 		return $s_view_name;
 	}

@@ -23,7 +23,6 @@ class process_progress_list extends process_listbase {
 	protected function make_sql(req_base $v_req_base)
 	{
 		$v_condition = $v_req_base->v_dto_progress_condition;
-		$s_network_name = $v_condition->s_progress_name;
 		$v_listcommon = $v_req_base->v_dto_listcommon;
 		$i_display_num = $v_listcommon->i_display_num;
 		$i_current_page = $v_listcommon->i_current_page;
@@ -148,15 +147,7 @@ class process_progress_list extends process_listbase {
 		$s_sql .= 'WHERE ';
 		$s_sql .= '1 = 1 ';
 
-
-		//ネットワーク名に指定がない場合、条件なし
-		if($s_network_name != null)
-		{
-			$s_sql .= 'and ';
-			$s_sql .= 'network_name like :NETWORK_NAME ';
-		}
-		$s_sql .= 'order by network_name asc ';
-		$s_sql .= 'limit ' .$i_display_num.' offset ' .$i_jogai_rec_num;
+		$s_sql .= 'order by HUMAN_ID, PROJECT_ID asc ';
 
 		return $s_sql;
 	}
@@ -169,12 +160,7 @@ class process_progress_list extends process_listbase {
 	protected function set_bind_value($s_sql, req_base $v_req_base, util_dbaccessor $v_util_dbaccessor)
 	{
 		$v_condition = $v_req_base->v_dto_progress_condition;
-		$s_progress_name = $v_condition->s_progress_name;
-
 		$v_pdostatement = $v_util_dbaccessor->v_pdo->prepare($s_sql);
-		if ($s_progress_name != '') {
-			$v_util_dbaccessor->set_bind_value($v_pdostatement, 'NETWORK_NAME', '%'.util_dbaccessor::get_decode_data($s_progress_name).'%');
-		}
 
 		return $v_pdostatement;
 	}
@@ -228,50 +214,56 @@ class process_progress_list extends process_listbase {
 		while($result = $v_pdostatement->fetch(PDO::FETCH_ASSOC)){
 			$v_resultrow = new dto_progress_resultrow();
 
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'STATUS');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'REMARKS');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_NAME');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_SEX');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'HUMAN_BIRTH');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'TEL');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'MAIL');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'POST');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'ADDRESS1');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'ADDRESS2');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_SKILL1');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'PROJECT_SKILL2');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_SKILL3');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'PROJECT_SKILL4');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_SKILL5');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'APPEAL_POINT');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'WEAK_POINT');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'AGREEMENT_STATUS');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'START_DATE');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'END_DATE');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'CAREER');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'ROLE');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'PROJECT_SCALE');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'SKILL_TYPE');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'SKILL_NAME');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
-			$v_resultrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
-			$v_resultrow->s_PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
+			$v_resultrow->HUMAN_ID = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
+			$v_resultrow->PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
+			$v_resultrow->STATUS = util_dbaccessor::get_encode_data($result, 'STATUS');
+			$v_resultrow->REMARKS = util_dbaccessor::get_encode_data($result, 'REMARKS');
+			$v_resultrow->HUMAN_NAME = util_dbaccessor::get_encode_data($result, 'HUMAN_NAME');
+			$v_resultrow->PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
+			$v_resultrow->HUMAN_SEX = util_dbaccessor::get_encode_data($result, 'HUMAN_SEX');
+			$v_resultrow->HUMAN_BIRTH = util_dbaccessor::get_encode_data($result, 'HUMAN_BIRTH');
+			$v_resultrow->TEL = util_dbaccessor::get_encode_data($result, 'TEL');
+			$v_resultrow->MAIL = util_dbaccessor::get_encode_data($result, 'MAIL');
+			$v_resultrow->POST = util_dbaccessor::get_encode_data($result, 'POST');
+			$v_resultrow->ADDRESS1 = util_dbaccessor::get_encode_data($result, 'ADDRESS1');
+			$v_resultrow->ADDRESS1 = util_dbaccessor::get_encode_data($result, 'ADDRESS2');
+			$v_resultrow->APPEAL_POINT = util_dbaccessor::get_encode_data($result, 'APPEAL_POINT');
+			$v_resultrow->WEAK_POINT = util_dbaccessor::get_encode_data($result, 'WEAK_POINT');
+			$v_resultrow->AGREEMENT_STATUS = util_dbaccessor::get_encode_data($result, 'AGREEMENT_STATUS');
+			$v_resultrow->START_DATE = util_dbaccessor::get_encode_data($result, 'START_DATE');
+			$v_resultrow->END_DATE = util_dbaccessor::get_encode_data($result, 'END_DATE');
+			$v_resultrow->PROJECT_ID = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
+			$v_resultrow->CAREER = util_dbaccessor::get_encode_data($result, 'CAREER');
+			$v_resultrow->ROLE = util_dbaccessor::get_encode_data($result, 'ROLE');
+			$v_resultrow->PROJECT_SCALE = util_dbaccessor::get_encode_data($result, 'PROJECT_SCALE');
+			$v_resultrow->PM_SKILL1_TYPE = util_dbaccessor::get_encode_data($result, 'PM_SKILL1_TYPE');
+			$v_resultrow->PM_SKILL1_NAME = util_dbaccessor::get_encode_data($result, 'PM_SKILL1_NAME');
+			$v_resultrow->PM_SKILL2_TYPE = util_dbaccessor::get_encode_data($result, 'PM_SKILL2_TYPE');
+			$v_resultrow->PM_SKILL2_NAME = util_dbaccessor::get_encode_data($result, 'PM_SKILL2_NAME');
+			$v_resultrow->PM_SKILL3_TYPE = util_dbaccessor::get_encode_data($result, 'PM_SKILL3_TYPE');
+			$v_resultrow->PM_SKILL3_NAME = util_dbaccessor::get_encode_data($result, 'PM_SKILL3_NAME');
+			$v_resultrow->PM_SKILL4_TYPE = util_dbaccessor::get_encode_data($result, 'PM_SKILL4_TYPE');
+			$v_resultrow->PM_SKILL4_NAME = util_dbaccessor::get_encode_data($result, 'PM_SKILL4_NAME');
+			$v_resultrow->PM_SKILL5_TYPE = util_dbaccessor::get_encode_data($result, 'PM_SKILL5_TYPE');
+			$v_resultrow->PM_SKILL5_NAME = util_dbaccessor::get_encode_data($result, 'PM_SKILL5_NAME');
+			$v_resultrow->PM_SKILL1_TYPE = util_dbaccessor::get_encode_data($result, 'PM_SKILL1_TYPE');
+			$v_resultrow->HM_SKILL1_TYPE = util_dbaccessor::get_encode_data($result, 'HM_SKILL1_TYPE');
+			$v_resultrow->HM_SKILL1_NAME = util_dbaccessor::get_encode_data($result, 'HM_SKILL1_NAME');
+			$v_resultrow->HM_SKILL2_TYPE = util_dbaccessor::get_encode_data($result, 'HM_SKILL2_TYPE');
+			$v_resultrow->HM_SKILL2_NAME = util_dbaccessor::get_encode_data($result, 'HM_SKILL2_NAME');
+			$v_resultrow->HM_SKILL3_TYPE = util_dbaccessor::get_encode_data($result, 'HM_SKILL3_TYPE');
+			$v_resultrow->HM_SKILL3_NAME = util_dbaccessor::get_encode_data($result, 'HM_SKILL3_NAME');
+			$v_resultrow->HM_SKILL4_TYPE = util_dbaccessor::get_encode_data($result, 'HM_SKILL4_TYPE');
+			$v_resultrow->HM_SKILL4_NAME = util_dbaccessor::get_encode_data($result, 'HM_SKILL4_NAME');
+			$v_resultrow->HM_SKILL5_TYPE = util_dbaccessor::get_encode_data($result, 'HM_SKILL5_TYPE');
+			$v_resultrow->HM_SKILL5_NAME = util_dbaccessor::get_encode_data($result, 'HM_SKILL5_NAME');
+
+			$v_resultrow->PROJECT_NAME = util_dbaccessor::get_encode_data($result, 'PROJECT_NAME');
+			$v_resultrow->PROJECT_STILE = util_dbaccessor::get_encode_data($result, 'PROJECT_STILE');
+			$v_resultrow->PROJECT_LOCATION = util_dbaccessor::get_encode_data($result, 'HM_SKILL5_NAME');
+			$v_resultrow->PROJECT_MANEY = util_dbaccessor::get_encode_data($result, 'PROJECT_MANEY');
+			$v_resultrow->PROJECT_PERIOD = util_dbaccessor::get_encode_data($result, 'PROJECT_PERIOD');
+			$v_resultrow->WANTEDEND_FLG = util_dbaccessor::get_encode_data($result, 'WANTEDEND_FLG');
 
 			array_push ($a_dto_progress_row, $v_resultrow);
 		}

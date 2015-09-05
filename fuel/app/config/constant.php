@@ -30,6 +30,11 @@ define('SESSION_NETWORK_DETAIL_EXEC', 'NETWORK_DETAIL_EXEC');
 define('SESSION_NETWORK_CHECK_OPERATOR', 'NETWORK_CHECK_OPERATOR');
 define('SESSION_NETWORK_CHECK_CHANNEL', 'NETWORK_CHECK_CHANNEL');
 
+// Session：進捗
+define('SESSION_PROGRESS_LIST', 'PROGRESS_LIST');
+
+
+
 // Session：サプライヤー
 define('SESSION_SUPPLIER_LIST', 'SUPPLIER_LIST');
 define('SESSION_SUPPLIER_DETAIL', 'SUPPLIER_DETAIL');
@@ -64,6 +69,11 @@ define('VIEW_LOGIN_COMPANY', 'login/company');
 define('VIEW_NETWORK_LIST', 'network/list');
 define('VIEW_NETWORK_DETAIL', 'network/detail');
 define('VIEW_NETWORK_CONFIRM', 'network/confirm');
+
+// View：進捗
+define('VIEW_PROGRESS_LIST', 'progress/list');
+define('VIEW_PROGRESS_DETAIL', 'progress/detail');
+define('VIEW_PROGRESS_CONFIRM', 'progress/confirm');
 
 // View：サプライヤー
 define('VIEW_SUPPLIER_LIST', 'supplier/list');
@@ -104,6 +114,12 @@ define('URL_HOME_MAIN', 'xxxxxxx');
 define('URL_LOGIN', 'login/index');
 define('URL_LOGIN_LOGIN', 'login/login');
 define('URL_COMPANY_SELECT', 'login/company/select');
+
+// URL：ネットワーク
+define('URL_PROGRESS_LIST', 'progress/list');
+define('URL_PROGRESS_LIST_SEARCH', 'progress/list/search');
+define('URL_PROGRESS_LIST_BACK', 'progress/list/back');
+
 
 // URL：ネットワーク
 define('URL_NETWORK_LIST', 'network/list');
