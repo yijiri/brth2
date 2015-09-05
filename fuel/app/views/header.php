@@ -46,7 +46,7 @@
     			<table class='tablebase' style='width:100%'>
     				<tr>
     					<td rowspan='2'>
-    						<a href="<?php print Uri::base().URL_LOGIN; ?>"><?php echo Asset::img('logo.gif', array('border'=>'0', 'alt'=>'トップ')); ?></a>
+    						<a href="<?php print Uri::base().URL_LOGIN; ?>">ジョブ・マリッジ～Job Marriage～</a>
     					</td>
        				</tr>
        			</table>
