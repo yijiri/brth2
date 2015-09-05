@@ -3,7 +3,7 @@
 <script>
 
 // function setHeaderAction(val) {
-// 	var f1 = document.formHeader;
+ 	var f1 = document.formHeader;
 
 // 	switch (val) {
 // 		case 0:
