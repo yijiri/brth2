@@ -10,10 +10,10 @@
 // 			f1.action = 'login';
 // 			break;
 // 		case 1:
-			f1.action = '<?php print Uri::base(); ?>password/main/';
+//			f1.action = '<?php print Uri::base(); ?>password/main/';
 // 			break;
 // 		case 2:
-			f1.action = '<?php print Uri::base(); ?>login/logout';
+//			f1.action = '<?php print Uri::base(); ?>login/logout';
 // 			break;
 // 	}
 
