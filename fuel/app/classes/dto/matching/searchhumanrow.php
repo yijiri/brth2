@@ -19,4 +19,9 @@ class dto_matching_searchhumanrow  extends dto_base
 	public $s_human_name;
 
 
+	/**
+	 * @var 更新日時
+	 */
+	public $s_update_time;
+
 }

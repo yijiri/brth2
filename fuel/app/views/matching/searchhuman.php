@@ -155,7 +155,7 @@ $(function(){
 	<table>
 		<tr>
 			<td>人材名&nbsp;&nbsp;</td>
-			<td><input type="text" name="s_human_name" value="<?php echo $s_human_name; ?>" placeholder="人材名を入力してください" /></td>
+			<td><input type="text" name="s_human_name" value="<?php echo $s_human_name; ?>" placeholder="" /></td>
 		</tr>
 	</table>
 
@@ -181,6 +181,8 @@ $(function(){
 		<tr>
 			<th>人材ID</th>
 			<th>人材名</th>
+			<th>更新日時</th>
+			<th>新着</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -188,6 +190,7 @@ $(function(){
 	<!-- 一覧 -->
 <?php
 	if ($a_dto_matching_searchhumanrow != null && count($a_dto_matching_searchhumanrow) != 0) {
+		$b_flg = false;
 
 		foreach ($a_dto_matching_searchhumanrow as $v_dto_matching_searchhumanrow)
 		{
@@ -195,6 +198,14 @@ $(function(){
 			//echo '<td><a href="javascript:void(0);" class="record" id="' .$v_dto_network_row->s_network_id. '">' .$v_dto_network_row->s_network_name. '</a></td>';
 			echo '	<td>' .$v_dto_matching_searchhumanrow->s_human_id. '</td>';
 			echo '<td><a href="javascript:setDetail(' ."'" .$v_dto_matching_searchhumanrow->s_human_id. "'". ');" class="record" id="' .$v_dto_matching_searchhumanrow->s_human_name. '">' .$v_dto_matching_searchhumanrow->s_human_name. '</a></td>';
+			echo '	<td>' .$v_dto_matching_searchhumanrow->s_update_time. '</td>';
+			if ($b_flg === false) {
+				echo '	<td>NEW</td>';
+				$b_flg = true;
+			} else {
+				echo '	<td></td>';
+
+			}
 			echo '<tr>';
 		}
 	}

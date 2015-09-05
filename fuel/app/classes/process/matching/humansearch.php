@@ -145,6 +145,7 @@ class process_matching_humansearch extends process_listbase {
 
 			$v_dto_matching_searchhumanrow->s_human_id = util_dbaccessor::get_encode_data($result, 'HUMAN_ID');
 			$v_dto_matching_searchhumanrow->s_human_name = util_dbaccessor::get_encode_data($result, 'HUMAN_NAME');
+			$v_dto_matching_searchhumanrow->s_update_time = util_dbaccessor::get_encode_data($result, 'ENTRY_DATE');
 			array_push ($a_dto_matching_searchhumanrow, $v_dto_matching_searchhumanrow);
 		}
 

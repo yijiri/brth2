@@ -155,7 +155,7 @@ $(function(){
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="form-group col-xs-12">
-				<input type="button" id="search" value="マッチング！" style="width:80px" onclick="setSearch();">
+				<input type="button" id="search" value="マッチング！" style="width:100px" onclick="setSearch();">
 			</div>
 		</div>
 	</div>
