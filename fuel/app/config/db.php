@@ -9,9 +9,9 @@
 	'production' => array(
 		'type'           => 'pdo',
 		'connection'     => array(
-				'dsn'            => 'mysql:host=brthdb.cetjzfpmiivw.us-west-2.rds.amazonaws.com;port=3306;dbname=brth;charset=utf8',
+				'dsn'            => 'mysql:host=127.0.0.1;port=3306;dbname=brth;charset=utf8',
 				'username'       => 'root',
-				'password'       => 'admin123daa',
+				'password'       => 'root',
 				'persistent'     => false,
 				'compress'       => false,
 		),
