@@ -154,7 +154,7 @@ $(function(){
 <?php echo Form::Open(array('action' => URL_MATCHING_SEARCH_HUMAN_LIST, 'name' => 'formSearch', 'class' => 'form-horizontal well'))."\n"?>
 	<table>
 		<tr>
-			<td>人材名</td>
+			<td>人材名&nbsp;&nbsp;</td>
 			<td><input type="text" name="s_human_name" value="<?php echo $s_human_name; ?>" placeholder="人材名を入力してください" /></td>
 		</tr>
 	</table>

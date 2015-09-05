@@ -42,11 +42,11 @@
 
 	<table class='tablebase' style='width:100%'>
     	<tr>
-    		<td bgcolor="#483D8B" width="100%">
+    		<td bgcolor="#483D8B" width="100%" height="100px">
     			<table class='tablebase' style='width:100%'>
     				<tr>
     					<td rowspan='2'>
-    						<a href="<?php print Uri::base().URL_LOGIN; ?>">ジョブ・マリッジ～Job Marriage～</a>
+    						<a href="<?php print Uri::base().URL_LOGIN; ?>"><font size="8">&nbsp;&nbsp;&nbsp;ジョブ・マリッジ～Job Marriage～</font></a>
     					</td>
        				</tr>
        			</table>
