@@ -42,7 +42,7 @@ class process_base{
 		try {
 			Log::debug('プロセス開始::'.get_class($this));
 
-			// 共通セッションの存在チェック(タイムアウトしていないか確認)
+/* 			// 共通セッションの存在チェック(タイムアウトしていないか確認)
 			util_sessionaccessor::get_session(SESSION_COMMON);
 
 			// このプロセスの実行権限がなければエラーをレスポンスにセットしてreturn
@@ -55,7 +55,7 @@ class process_base{
 				Session::delete(SESSION_COMMON);
 				Session::set(SESSION_ERROR, $v_dto_error);
 				return VIEW_ERROR;
-			}
+			} */
 
 			if ($this->b_db_flg === true)
 			{

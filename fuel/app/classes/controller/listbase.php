@@ -18,9 +18,6 @@ class Controller_Listbase extends Controller_Base
 			// 検索条件をセット
 			$this->set_input_param($v_req_listbase);
 
-			// パンくずをセット
-			$this->set_breadcrumb();
-
 			// プロセス実行
 			$this->_execute_index_process($v_req_listbase);
 
@@ -43,11 +40,9 @@ class Controller_Listbase extends Controller_Base
 			// 検索条件をセット
 			$this->set_input_param($v_req_listbase);
 
-			// 検索条件(ページ)をセット
-			$this->_set_input_param_page($v_req_listbase);
-
 			// プロセス実行
 			$this->_execute_search_process($v_req_listbase);
+
 		} catch (\Exception $e) {
 			// エラー画面に遷移
 			$this->setActionError(get_class($this), Request::active()->action);
@@ -63,9 +58,6 @@ class Controller_Listbase extends Controller_Base
 		try {
 			// リクエスト取得
 			$v_req_listbase = $this->get_index_request();
-
-			// パンくずをセット
-			$this->set_breadcrumb();
 
 			// プロセス実行
 			$this->_execute_back_process($v_req_listbase);
@@ -85,9 +77,6 @@ class Controller_Listbase extends Controller_Base
 		try {
 			// リクエスト取得
 			$v_req_listbase = $this->get_index_request();
-
-			// パンくずをセット
-			$this->set_breadcrumb();
 
 			// プロセス実行
 			$this->_execute_backv2_process($v_req_listbase);

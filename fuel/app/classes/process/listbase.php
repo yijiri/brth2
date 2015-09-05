@@ -44,8 +44,6 @@ class process_listbase extends process_base {
 		// セッションに格納
 		$this->set_session($v_res_base);
 
-		// ページャ情報セット
-		$this->set_pager($v_req_base);
 
 		return $this->get_view_name($v_req_base);
 	}

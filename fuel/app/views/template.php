@@ -7,39 +7,46 @@
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="expires" content="0" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>鍵開け管理システム</title>
+	<title>ブライソン</title>
 
-	<?php echo Asset::css('bootstrap.css'); ?>
+	<?php echo Asset::js('jquery.min.js'); ?>
+
+	<?php echo Asset::css('style.css'); ?>
+	<?php echo Asset::js('settle.js'); ?>
+
+	<?php echo Asset::css('jquery-ui.structure.css'); ?>
+	<?php echo Asset::css('ui.jqgrid.css'); ?>
+	<?php echo Asset::css('jquery-ui.theme.css'); ?>
+	<?php // TODO:いらないっぽいけど、コメントアウトするとカレンダーが前回で表示される。要調査。 ?>
 	<?php echo Asset::css('jquery-ui.css'); ?>
-	<?php echo Asset::css('glayer.css'); ?>
-	<?php echo Asset::css('jquery_notification.css'); ?>
-	<?php echo Asset::css('app.css'); ?>
-	<?php echo Asset::js('jquery-1.11.3.min.js'); ?>
-	<?php echo Asset::js('jquery.cookie.min.js'); ?>
+
+	<?php echo Asset::js('jquery.js'); ?>
+	<?php echo Asset::js('jquery-1.11.0.min.js'); ?>
+
+	<?php echo Asset::js('jquery.jqGrid.min.js'); ?>
+	<?php echo Asset::js('grid.locale-ja.js'); ?>
+	<?php echo Asset::js('jquery-ui.js'); ?>
 	<?php echo Asset::js('jquery-ui.min.js'); ?>
-	<?php echo Asset::js('glayer.js'); ?>
-	<?php echo Asset::js('jquery_notification_v.1.js'); ?>
+	<?php echo Asset::js('jquery.ui.datepicker-ja.js'); ?>
+	<?php echo Asset::js('jquery.tablednd.js'); ?>
+
+	<?php echo Asset::css('popupwindow.css'); ?>
+	<?php echo Asset::js('popupwindow.js'); ?>
+
 
 </head>
 
 <body>
 
-	<?php echo $header; ?>
-	<div class="container">
-		<div class="row">
-			<!-- 各アクションの内容を読み込む -->
-			<?php echo $menu; ?>
-			<div class="col-xs-10">
-				<!-- 各アクションの内容を読み込む -->
-				<?php echo $content; ?>
-			</div>
-		</div>
-	</div>
+    <header>
+        <!-- header.phpファイルを読み込む-->
+        <?php echo $header; ?>
+    </header>
 
-    <footer>
-        <!-- footer.phpファイルを読み込む-->
-        <?php echo $footer; ?>
-    </footer>
+    <div id="content">
+        <!-- 各アクションの内容を読み込む-->
+        <?php echo $content; ?>
+    </div>
 
     <!-- ダブルクリック防止用フォーム -->
 	<?php echo Form::Open(array('action' => '', 'name' => 'formFlg'))."\n"?>

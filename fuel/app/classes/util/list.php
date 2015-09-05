@@ -50,7 +50,7 @@ class util_list
 			$s_ret .= 'width:"'.$a_sorted_header[$i]->s_width.'",';
 			$s_ret .= 'align:"'.$a_sorted_header[$i]->s_align.'",';
 
-			// 特定の文字があったら、文字の色を変える
+/* 			// 特定の文字があったら、文字の色を変える
 			$s_ret .= 'cellattr: function(rowId, val, rawObject, cm, rdata, name){
 							if (val == \'' .EMPTY_MEMBER_NAME.'\' || val == \'' .EMPTY_OTHER.'\' || val == \'' .EMPTY_AGENCY_NAME.'\' || val == \'' .EMPTY_NOLIMIT.'\')
 							{
@@ -73,7 +73,7 @@ class util_list
 							{
 								return\' style="color: #FF0000;"\'
 							}';
-			}
+			} */
 
 			$s_ret .= '	},';
 
@@ -156,7 +156,7 @@ class util_list
 				$s_val = util_str::replaceForDisp($s_val);
 
 				$s_ret .= $s_key.'_idx:"'.$s_val.'",';
-
+/*
 				if ($s_val == '')
 				{
 					// 加盟店名のときは「未定」、その他のときは「空欄」と表示
@@ -183,7 +183,7 @@ class util_list
 					$s_val .= ' ';
 				} elseif ($s_val == EMPTY_OTHER){
 					$s_val .= ' ';
-				}
+				} */
 
 				$s_ret .= $s_key.':"'.$s_val.'"';
 			}
