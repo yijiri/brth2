@@ -22,32 +22,22 @@ class process_matching_projectlist extends process_listbase {
 	 */
 	protected function make_sql(req_base $v_req_base)
 	{
-		$v_condition = $v_req_base->v_dto_network_condition;
-		$s_network_name = $v_condition->s_network_name;
-		$v_listcommon = $v_req_base->v_dto_listcommon;
-		$i_display_num = $v_listcommon->i_display_num;
-		$i_current_page = $v_listcommon->i_current_page;
-		$i_jogai_rec_num = ($v_listcommon->i_current_page - 1) * $i_display_num;
+		$v_dto_matching_projectlistcondition = $v_req_base->v_dto_matching_projectlistcondition;
+		$s_human_id = $v_dto_matching_projectlistcondition->s_human_id;
 
 		$s_sql = '';
-		$s_sql .= 'SELECT ';
-		$s_sql .= 'network_id, ';
-		$s_sql .= 'network_name, ';
-		$s_sql .= 'enabled_flag ';
-		$s_sql .= 'FROM ';
-		$s_sql .= 'network_mst ';
+		$s_sql .= 'SELECT * from PROJECT_MST ';
 		$s_sql .= 'WHERE ';
 		$s_sql .= '1 = 1 ';
 
 
-		//ネットワーク名に指定がない場合、条件なし
-		if($s_network_name != null)
+/* 		if($s_human_name != null)
 		{
 			$s_sql .= 'and ';
-			$s_sql .= 'network_name like :NETWORK_NAME ';
-		}
-		$s_sql .= 'order by network_name asc ';
-		$s_sql .= 'limit ' .$i_display_num.' offset ' .$i_jogai_rec_num;
+			$s_sql .= 'HUMAN_NAME like :HUMAN_NAME ';
+		} */
+		$s_sql .= 'order by PROJECT_ID asc ';
+
 
 		return $s_sql;
 	}
@@ -59,13 +49,13 @@ class process_matching_projectlist extends process_listbase {
 	 */
 	protected function set_bind_value($s_sql, req_base $v_req_base, util_dbaccessor $v_util_dbaccessor)
 	{
-		$v_condition = $v_req_base->v_dto_network_condition;
-		$s_network_name = $v_condition->s_network_name;
+		$v_dto_matching_projectlistcondition = $v_req_base->v_dto_matching_projectlistcondition;
+		$s_human_id = $v_dto_matching_projectlistcondition->s_human_id;
 
 		$v_pdostatement = $v_util_dbaccessor->v_pdo->prepare($s_sql);
-		if ($s_network_name != '') {
-			$v_util_dbaccessor->set_bind_value($v_pdostatement, 'NETWORK_NAME', '%'.util_dbaccessor::get_decode_data($s_network_name).'%');
-		}
+/* 		if ($s_human_name != '') {
+			$v_util_dbaccessor->set_bind_value($v_pdostatement, 'HUMAN_NAME', '%'.util_dbaccessor::get_decode_data($s_human_name).'%');
+		} */
 
 		return $v_pdostatement;
 	}
@@ -77,7 +67,7 @@ class process_matching_projectlist extends process_listbase {
 	 */
 	protected function set_session(res_base $v_res_base)
 	{
-		Session::set(SESSION_NETWORK_LIST, $v_res_base);
+		Session::set(SESSION_MATCHING_PROJECT_LIST, $v_res_base);
 	}
 
 
@@ -88,22 +78,17 @@ class process_matching_projectlist extends process_listbase {
 	protected function make_response(PDOStatement $v_pdostatement, req_base $v_req_base)
 	{
 		// 取得したデータを配列につめる
-		$a_dto_network_row = $this->_set_result($v_pdostatement);
+		$a_dto_matching_projectrow = $this->_set_result($v_pdostatement);
 
-		$v_resultlist = new res_network_resultlist();
-		$v_resultlist->v_dto_network_condition = $v_req_base->v_dto_network_condition;
-		$v_resultlist->a_dto_network_row = $a_dto_network_row;
-		$v_resultlist->v_dto_listcommon = $v_req_base->v_dto_listcommon;
+		$v_res_matching_projectlist = new res_matching_projectlist();
 
-		// 1レコードもヒットしなかったときは、エラーメッセージを表示する
-		if (count($a_dto_network_row) == 0) {
-			$v_dto_common_inputerror = new dto_common_inputerror();
-			$v_dto_common_inputerror->s_col_name = '';
-			$v_dto_common_inputerror->s_error_msg = str_replace('%param1', 'ネットワーク', ERROR_NO_RECORD);;
-			array_push($v_resultlist->v_dto_rescommon->a_error_msg, $v_dto_common_inputerror);
-		}
+		$v_res_matching_projectlist->a_dto_matching_projectrow = $a_dto_matching_projectrow;
 
-		return $v_resultlist;
+		// ヘッダ
+		//$v_res_matching_searchhuman->v_dto_columnheader = $this->_set_header();
+
+
+		return $v_res_matching_projectlist;
 	}
 
 
@@ -114,20 +99,18 @@ class process_matching_projectlist extends process_listbase {
 	 */
 	private function _set_result(PDOStatement $v_pdostatement)
 	{
-		$a_dto_network_row = array();
+		$a_dto_matching_projectrow = array();
 
 		while($result = $v_pdostatement->fetch(PDO::FETCH_ASSOC)){
-			$v_resultrow = new dto_network_resultrow();
+			$v_dto_matching_projectrow = new dto_matching_projectrow();
 
-			$v_resultrow->s_network_id = util_dbaccessor::get_encode_data($result, 'network_id');
-			$v_resultrow->s_network_name = util_dbaccessor::get_encode_data($result, 'network_name');
-			$v_resultrow->s_enabled_flag = util_dbaccessor::get_encode_data($result, 'enabled_flag');
-			$v_resultrow->s_enabled_name = util_decord::enable_decord(util_dbaccessor::get_encode_data($result, 'enabled_flag'));
-			$v_resultrow->s_enabled_name = util_dbaccessor::get_encode_data($result, 'enabled_flag');
-			array_push ($a_dto_network_row, $v_resultrow);
+			$v_dto_matching_projectrow->s_project_id = util_dbaccessor::get_encode_data($result, 'PROJECT_ID');
+			$v_dto_matching_projectrow->s_project_name = util_dbaccessor::get_encode_data($result, 'PROJECT_NAME');
+			$v_dto_matching_projectrow->s_project_location = util_dbaccessor::get_encode_data($result, 'PROJECT_LOCATION');
+			array_push ($a_dto_matching_projectrow, $v_dto_matching_projectrow);
 		}
 
-		return $a_dto_network_row;
+		return $a_dto_matching_projectrow;
 	}
 
 
@@ -148,7 +131,7 @@ class process_matching_projectlist extends process_listbase {
 	 */
 	protected function get_view_name(req_base $v_req_base, res_base $v_res_base = null)
 	{
-		return VIEW_NETWORK_LIST;
+		return VIEW_MATCHING_PROJECTLIST;
 	}
 
 

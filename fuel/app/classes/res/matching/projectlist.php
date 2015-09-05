@@ -5,7 +5,7 @@
  * 画面：xx
  * 概要：xx
  */
-class res_matching_projectlist extends req_listbase
+class res_matching_projectlist extends res_listbase
 {
 
 	/**
@@ -16,7 +16,7 @@ class res_matching_projectlist extends req_listbase
 
 	public function res_matching_projectlist()
 	{
-		parent::req_listbase();
+		parent::res_listbase();
 		$this->a_dto_matching_projectrow = array();
 	}
 }
