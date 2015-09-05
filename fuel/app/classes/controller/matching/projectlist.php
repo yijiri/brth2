@@ -4,7 +4,7 @@
  * 区分：xx
  * 画面：xx
  */
-class Controller_Matching_projectlist extends Controller_Listbase
+class Controller_Matching_Projectlist extends Controller_Listbase
 {
 
 	public function action_index()
@@ -30,7 +30,7 @@ class Controller_Matching_projectlist extends Controller_Listbase
 	 */
 	protected function get_search_request()
 	{
-		return new process_matching_projectlist();
+		return new req_matching_projectlist();
 	}
 
 
@@ -81,8 +81,8 @@ class Controller_Matching_projectlist extends Controller_Listbase
 	protected function set_input_param(req_listbase $v_req_listbase)
 	{
 		// 検索条件DTO
-		$v_dto_matching_condition = new dto_matching_condition();
- 		$v_req_listbase->v_dto_matching_condition = $v_dto_network_condition;
+		$v_dto_matching_projectlistcondition = new dto_matching_projectlistcondition();
+ 		$v_req_listbase->v_dto_matching_projectlistcondition = $v_dto_matching_projectlistcondition;
 
 		$a_input_param = Input::post();
 		if ($a_input_param == null)
@@ -90,7 +90,6 @@ class Controller_Matching_projectlist extends Controller_Listbase
 			return;
 		}
 
-		$v_dto_matching_condition->s_human_id = $a_input_param['s_human_id'];
-		$v_dto_matching_condition->s_human_name = $a_input_param['s_human_name'];
+		$v_dto_matching_projectlistcondition->s_human_id = $a_input_param['s_human_id'];
 	}
 }

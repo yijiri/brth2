@@ -3,6 +3,7 @@
 use Fuel\Core\Uri;
 
 define('URL_MATCHING_SEARCH_HUMAN_LIST', 'matching/searchhuman/search');
+define('URL_MATCHING_PROJECT_LIST', 'matching/projectlist/search');
 
 // グリッドの表示件数
 define('DISPLAY_NUM', '10,20,30,50');
@@ -11,6 +12,7 @@ define('SESSION_MATCHING_SEARCH_HUMAN', 'MATCHING_SEARCH_HUMAN');
 define('SESSION_MATCHING_PROJECT_LIST', 'MATCHING_PROJECT_LIST');
 
 define('VIEW_MATCHING_SEARCHHUMAN', 'matching/searchhuman');
+define('VIEW_MATCHING_PROJECTLIST', 'matching/projectlist');
 
 
 

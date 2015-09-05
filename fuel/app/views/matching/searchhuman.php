@@ -7,11 +7,14 @@
 	$s_column_info = "";
 	$table_width = 100;
 	$s_list_row = "";
+	$a_dto_matching_searchhumanrow = null;
 
 	// Sessionから値を取得
 	$v_res_matching_searchhuman = Session::get(SESSION_MATCHING_SEARCH_HUMAN);
 
 	if ($v_res_matching_searchhuman != null) {
+
+		$a_dto_matching_searchhumanrow = $v_res_matching_searchhuman->a_dto_matching_searchhumanrow;
 
 		// 一覧ヘッダ
 		$v_dto_columnheader = $v_res_matching_searchhuman->v_dto_columnheader;
@@ -100,6 +103,19 @@ function setSearch()
 }
 
 
+function setDetail(id)
+{
+	if (document.formFlg.executeFlg.value == true){
+		return;
+	} else {
+		document.formFlg.executeFlg.value = true;
+		document.formDetail.s_human_id.value = id;
+		document.formDetail.submit();
+		document.formFlg.executeFlg.value = false;
+	}
+}
+
+
 $(function(){
 
 
@@ -157,47 +173,40 @@ $(function(){
 
 <br>
 <br>
+<?php echo Form::Close()?>
 
-	<script type="text/javascript">
-		jQuery(document).ready(function()
-		{
-			// レコード
-			var records = [<?php print $s_rec; ?>];
-			// ヘッダ名
-			var colNames = [<?php print $s_column_name; ?>];
-			// ヘッダ情報
-			var colModelSettings= [<?php print $s_column_info; ?>];
+<center>
+	<table class="table table-bordered table-hover table-condensed" style="width:50%;">
+	<thead>
+		<tr>
+			<th>人材ID</th>
+			<th>人材名</th>
+		</tr>
+	</thead>
+	<tbody>
 
-			jQuery("#searchTable").jqGrid({
-				data:records,
-				datatype : "local",
-				colNames : colNames,
-				colModel : colModelSettings,
-				rowNum : <?php print DEFAULT_NUM; ?>,
-				rowList : [<?php print DISPLAY_NUM; ?>],
-				height : '100%',
-				width : <?php print $table_width; ?>,
-				pager : 'pager',
-				shrinkToFit : false,
-				multiselect: true,
-				viewrecords: true
-			});
-
-			//var rowNum = jQuery("#searchTable").jqGrid("getGridParam", "rowNum");
-
-		});
-	</script>
-
-
-	<div align='center'>
 	<!-- 一覧 -->
-	<table id="searchTable"></table>
-	<div id = "pager"></div>
-	</div>
+<?php
+	if ($a_dto_matching_searchhumanrow != null && count($a_dto_matching_searchhumanrow) != 0) {
 
+		foreach ($a_dto_matching_searchhumanrow as $v_dto_matching_searchhumanrow)
+		{
+			echo '<tr>';
+			//echo '<td><a href="javascript:void(0);" class="record" id="' .$v_dto_network_row->s_network_id. '">' .$v_dto_network_row->s_network_name. '</a></td>';
+			echo '	<td>' .$v_dto_matching_searchhumanrow->s_human_id. '</td>';
+			echo '<td><a href="javascript:setDetail(' ."'" .$v_dto_matching_searchhumanrow->s_human_id. "'". ');" class="record" id="' .$v_dto_matching_searchhumanrow->s_human_name. '">' .$v_dto_matching_searchhumanrow->s_human_name. '</a></td>';
+			echo '<tr>';
+		}
+	}
+?>
+	</tbody>
+	</table>
+
+
+</center>
 <!-- 明細画面表示用 -->
-<?php echo Form::Open(array('action' => URL_NETWORK_DETAIL, 'name' => 'formDetail'))."\n"?>
-	<input type="hidden" name="s_network_id" value="">
+<?php echo Form::Open(array('action' => URL_MATCHING_PROJECT_LIST, 'name' => 'formDetail'))."\n"?>
+	<input type="hidden" name="s_human_id" value="">
 <?php echo Form::Close()?>
 
 <!-- [戻る]ボタン用 -->

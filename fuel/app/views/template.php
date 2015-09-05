@@ -9,29 +9,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ブライソン</title>
 
-	<?php echo Asset::js('jquery.min.js'); ?>
-
-	<?php echo Asset::css('style.css'); ?>
-	<?php echo Asset::js('settle.js'); ?>
-
-	<?php echo Asset::css('jquery-ui.structure.css'); ?>
-	<?php echo Asset::css('ui.jqgrid.css'); ?>
-	<?php echo Asset::css('jquery-ui.theme.css'); ?>
-	<?php // TODO:いらないっぽいけど、コメントアウトするとカレンダーが前回で表示される。要調査。 ?>
+	<?php echo Asset::css('bootstrap.css'); ?>
 	<?php echo Asset::css('jquery-ui.css'); ?>
-
-	<?php echo Asset::js('jquery.js'); ?>
-	<?php echo Asset::js('jquery-1.11.0.min.js'); ?>
-
-	<?php echo Asset::js('jquery.jqGrid.min.js'); ?>
-	<?php echo Asset::js('grid.locale-ja.js'); ?>
-	<?php echo Asset::js('jquery-ui.js'); ?>
+	<?php echo Asset::css('glayer.css'); ?>
+	<?php echo Asset::css('jquery_notification.css'); ?>
+	<?php echo Asset::css('app.css'); ?>
+	<?php echo Asset::js('jquery-1.11.3.min.js'); ?>
+	<?php echo Asset::js('jquery.cookie.min.js'); ?>
 	<?php echo Asset::js('jquery-ui.min.js'); ?>
-	<?php echo Asset::js('jquery.ui.datepicker-ja.js'); ?>
-	<?php echo Asset::js('jquery.tablednd.js'); ?>
-
-	<?php echo Asset::css('popupwindow.css'); ?>
-	<?php echo Asset::js('popupwindow.js'); ?>
+	<?php echo Asset::js('glayer.js'); ?>
+	<?php echo Asset::js('jquery_notification_v.1.js'); ?>
 
 
 </head>
