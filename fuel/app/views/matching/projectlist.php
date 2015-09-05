@@ -152,16 +152,6 @@ $(function(){
 
 
 <?php echo Form::Open(array('action' => URL_MATCHING_SEARCH_HUMAN_LIST, 'name' => 'formSearch', 'class' => 'form-horizontal well'))."\n"?>
-	<table>
-		<tr>
-			<td>プロジェクト名</td>
-			<td><input type="text" name="s_human_name" value="<?php echo $s_human_name; ?>" placeholder="人材名を入力してください" /></td>
-		</tr>
-	</table>
-
-	<br>
-	<br>
-
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="form-group col-xs-12">
